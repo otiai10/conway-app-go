@@ -1,4 +1,4 @@
-module github.com/otiai10/conway-starter-go
+module github.com/otiai10/conway-app-go
 
 go 1.13
 

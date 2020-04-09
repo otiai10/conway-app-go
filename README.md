@@ -1,4 +1,4 @@
-# conway-starter-go
+# conway-app-go
 
 ```
 go test ./...
