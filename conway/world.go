@@ -29,7 +29,10 @@ func InitWorld(w, h int, rule ...Rule) World {
 
 // CreateCell ...
 func CreateCell(x, y int, status Status) Cell {
-	return Cell{}
+	return Cell{
+		Position: Position{X: x, Y: y},
+		Status:   GetRandomStatus(),
+	}
 }
 
 // Next provides next world.
@@ -48,12 +51,42 @@ func (world World) Next() World {
 		Width:  world.Width,
 		Height: world.Height,
 		Matrix: matrix,
+		Rule:   world.Rule,
 	}
 }
 
 // GetNeighborsOf ...
 func (world World) GetNeighborsOf(x, y int) []Cell {
 	neighbors := []Cell{}
-
+	for _, ny := range world.getRowIndicesFor(y) {
+		for _, nx := range world.getColIndicesFor(x) {
+			// fmt.Println(nx, ny)
+			if ny != y || nx != x {
+				neighbors = append(neighbors, world.Matrix[ny][nx])
+				// fmt.Println(world.Matrix[ny][nx])
+			}
+		}
+	}
+	// fmt.Println("-----")
 	return neighbors
+}
+
+func (world World) getRowIndicesFor(y int) []int {
+	if y == 0 {
+		return []int{y, y + 1}
+	}
+	if y == world.Height-1 {
+		return []int{y - 1, y}
+	}
+	return []int{y - 1, y, y + 1}
+}
+
+func (world World) getColIndicesFor(x int) []int {
+	if x == 0 {
+		return []int{x, x + 1}
+	}
+	if x == world.Width-1 {
+		return []int{x - 1, x}
+	}
+	return []int{x - 1, x, x + 1}
 }
