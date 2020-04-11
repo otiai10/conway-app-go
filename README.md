@@ -1,5 +1,7 @@
 # conway-app-go
 
+[![Actions Status](https://github.com/otiai10/conway-app-go/workflows/Go/badge.svg)](https://github.com/otiai10/conway-app-go/actions)
+
 ```
 go test ./... -v -cover
 ```
@@ -28,3 +30,5 @@ go run main.go
 ```
 go run main.go -a "🤔" -d "  " -s 100 -w 40 -h 40
 ```
+
+<img src="https://user-images.githubusercontent.com/931554/79042982-61bd6a80-7bfc-11ea-894d-d85464875e4f.png" width="50%" />
