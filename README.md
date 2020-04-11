@@ -1,9 +1,15 @@
 # conway-app-go
 
 ```
-go test ./...
+go test ./... -v -cover
 ```
 
 ```
 go run main.go
+```
+
+# More options
+
+```
+go run main.go -h
 ```
