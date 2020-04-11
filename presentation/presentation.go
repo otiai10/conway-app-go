@@ -21,9 +21,9 @@ func (r *Renderer) Update(world conway.World) error {
 		for _, cell := range row {
 			switch cell.Status {
 			case conway.Alive:
-				fmt.Fprintf(r.Out, r.Alive)
+				fmt.Fprint(r.Out, r.Alive)
 			case conway.Dead:
-				fmt.Fprintf(r.Out, r.Dead)
+				fmt.Fprint(r.Out, r.Dead)
 			}
 		}
 		r.newline()
@@ -32,9 +32,9 @@ func (r *Renderer) Update(world conway.World) error {
 }
 
 func (r *Renderer) clear() {
-	fmt.Fprintf(r.Out, "\033c")
+	fmt.Fprint(r.Out, "\033c")
 }
 
 func (r *Renderer) newline() {
-	fmt.Fprintf(r.Out, "\n")
+	fmt.Fprint(r.Out, "\n")
 }

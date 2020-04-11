@@ -60,14 +60,11 @@ func (world World) GetNeighborsOf(x, y int) []Cell {
 	neighbors := []Cell{}
 	for _, ny := range world.getRowIndicesFor(y) {
 		for _, nx := range world.getColIndicesFor(x) {
-			// fmt.Println(nx, ny)
 			if ny != y || nx != x {
 				neighbors = append(neighbors, world.Matrix[ny][nx])
-				// fmt.Println(world.Matrix[ny][nx])
 			}
 		}
 	}
-	// fmt.Println("-----")
 	return neighbors
 }
 
