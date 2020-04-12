@@ -24,5 +24,5 @@ func TestRenderer_Update(t *testing.T) {
 			{A, D, D},
 		},
 	})
-	Expect(t, buf.String()).ToBe("\033c##!\n!!#\n#!!\n")
+	Expect(t, buf.String()).ToBe("\033[0;0H##!\n!!#\n#!!\n")
 }

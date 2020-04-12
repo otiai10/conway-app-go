@@ -50,7 +50,7 @@ func (app *App) Run(stdout io.Writer) error {
 		Dead:  app.ExpressionDead,
 	}
 	world := conway.InitWorld(width, height)
-	renderer.Update(world)
+	renderer.Clear()
 	for next := world.Next(); ; next = next.Next() {
 		time.Sleep(time.Duration(interval) * time.Millisecond)
 		renderer.Update(next)

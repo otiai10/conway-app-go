@@ -16,7 +16,7 @@ type Renderer struct {
 
 // Update ...
 func (r *Renderer) Update(world conway.World) error {
-	r.clear()
+	r.moveToTop()
 	for _, row := range world.Matrix {
 		for _, cell := range row {
 			switch cell.Status {
@@ -31,8 +31,13 @@ func (r *Renderer) Update(world conway.World) error {
 	return nil
 }
 
-func (r *Renderer) clear() {
+// Clear ...
+func (r *Renderer) Clear() {
 	fmt.Fprint(r.Out, "\033c")
+}
+
+func (r *Renderer) moveToTop() {
+	fmt.Fprint(r.Out, "\033[0;0H")
 }
 
 func (r *Renderer) newline() {
